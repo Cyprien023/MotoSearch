@@ -23,7 +23,7 @@ export function createApp(): Express {
     app.use(express.json());
 
     const repository = createRepository();
-    const motoService = new MotoService();
+    const motoService = new MotoService(repository);
     const motoController = new MotoController(motoService);
 
     app.get('/health', (_req, res) => res.status(200).json({ status: 'ok' }));
