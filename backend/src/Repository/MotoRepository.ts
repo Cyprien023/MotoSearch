@@ -1,5 +1,5 @@
 import { PrismaClient, Moto as PrismaMoto } from '@prisma/client';
-import { IMotoRepository } from '../Repository/IMotoRepository';
+import { IMotoRepository } from './IMotoRepository';
 import { Moto, MotoType } from '../Entity/MotoEntity';
 
 

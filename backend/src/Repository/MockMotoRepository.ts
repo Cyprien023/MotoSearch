@@ -1,4 +1,4 @@
-import { IMotoRepository } from '../Repository/IMotoRepository';
+import { IMotoRepository } from './IMotoRepository';
 import { Moto } from '../Entity/MotoEntity';
 import { mockMoto } from '../Data/MockMoto';
 
