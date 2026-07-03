@@ -37,18 +37,11 @@ npm run dev
 
 ## Endpoints
 
-
-```
-GET /health
-```
-
 #### Lister les motos
 
 ```
 GET /api/motos
 ```
-
-
 
 
 #### Détail d'une moto
