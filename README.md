@@ -1,5 +1,7 @@
 # MotoSearch
 
+(frontend temporaire généré à l'IA pour s'amuser)
+
 ## Stack
 
 
