@@ -10,6 +10,7 @@ export class AuthService {
     constructor(private readonly userRepository: IUserRepository) {}
 
     async register(email: string, password: string): Promise<UserPublic> {
+        /* à faire dans le controller */
         if (!email || !password) {
             throw new ValidationError('email et mot de passe requis');
         }
