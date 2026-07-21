@@ -125,6 +125,7 @@ export default function MotosPage() {
                         <option value="annee">Année</option>
                         <option value="puissance">Puissance</option>
                         <option value="distance">Distance</option>
+                        <option value="score">Pertinence</option>
                     </select>
                     <select
                         className="bg-gray-800 rounded px-3 py-2 text-sm"
@@ -159,6 +160,7 @@ export default function MotosPage() {
                                     <div className="text-gray-400 text-sm space-y-1">
                                         <p>{moto.annee} · {moto.kilometrage.toLocaleString('fr-FR')} km · {moto.cylindree} cc</p>
                                         <p>{moto.type} · {moto.puissance} kW {moto.compatibleA2 && <span className="text-green-400">· A2 ✓</span>}</p>
+                                        <p className="text-yellow-400 text-xs">⭐ Score : {moto.score}/20</p>
                                         <p>📍 {moto.localisation} ({moto.region})</p>
                                     </div>
                                     <Link

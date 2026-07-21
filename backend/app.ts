@@ -26,7 +26,7 @@ export function createApp(): Express {
 
     app.use(cors());
     app.use(express.json());
-    app.use('/img', express.static(path.join(__dirname, '../img')));
+    app.use('/uploads', express.static(path.join(__dirname, 'img')));
 
     const prisma = new PrismaClient();
 

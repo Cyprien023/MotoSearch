@@ -24,6 +24,7 @@ export interface Moto {
     photoUrl: string;
     distanceKm: number;
     compatibleA2: boolean;
+    score: number;
 }
 
 export interface MotoFilters {
@@ -40,5 +41,5 @@ export interface MotoFilters {
     region?: string;
 }
 
-export type SortField = 'prix' | 'kilometrage' | 'annee' | 'puissance' | 'datePublication' | 'distance';
+export type SortField = 'prix' | 'kilometrage' | 'annee' | 'puissance' | 'datePublication' | 'distance' | 'score';
 export type SortOrder = 'asc' | 'desc';

@@ -69,7 +69,7 @@ export const mockMoto: Moto[] = [
         region: 'Île-de-France',
         vendeur: 'Ducati Paris',
         datePublication: '2026-06-28T11:15:00.000Z',
-        photoUrl: 'http://localhost:3000/uploads/cb500f.webp',
+        photoUrl: 'http://localhost:3000/uploads/panigalev2.webp',
         distanceKm: 460,
     },
     {
@@ -120,7 +120,7 @@ export const mockMoto: Moto[] = [
         region: 'Auvergne-Rhône-Alpes',
         vendeur: 'KTM Montluçon',
         datePublication: '2026-06-29T09:00:00.000Z',
-        photoUrl: 'https://picsum.photos/seed/390duke/600/400',
+        photoUrl: 'http://localhost:3000/uploads/duke390.jpg',
         distanceKm: 2,
     },
     {
