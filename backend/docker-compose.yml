@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: motosearch
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: moto
+      POSTGRES_PASSWORD: moto
+      POSTGRES_DB: motosearch
+    ports:
+      - '5433:5432'
+    volumes:
+      - moto_db_data:/var/lib/postgresql/data
+
+volumes:
+  moto_db_data:
