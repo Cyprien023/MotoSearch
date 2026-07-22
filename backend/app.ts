@@ -13,24 +13,30 @@ import { FavoriService } from './Service/FavoriService';
 import { MotoController } from './Controller/MotoController';
 import { AuthController } from './Controller/AuthController';
 import { FavoriController } from './Controller/FavoriController';
+import {PrismaSingleton} from "./Database/PrismaSingleton";
+import {RepositoryFactory} from "./factory/RepositoryFactory";
 
+/*
 function createRepository(prisma: PrismaClient): IMotoRepository {
     if (process.env.DATA_SOURCE === 'db') {
         return new MotoRepository(prisma);
     }
     return new MockMotoRepository();
 }
+*/
 
 export function createApp(): Express {
     const app = express();
+    const prisma = PrismaSingleton.getInstance();
 
     app.use(cors());
     app.use(express.json());
     app.use('/uploads', express.static(path.join(__dirname, 'img')));
 
-    const prisma = new PrismaClient();
+    /* const prisma = new PrismaClient(); */
 
-    const motoRepository = createRepository(prisma);
+    const motoRepository = RepositoryFactory.createMotoRepository(prisma);
+    /* const motoRepository = createRepository(prisma); */
     const userRepository = new UserRepository(prisma);
     const favoriRepository = new FavoriRepository(prisma);
 

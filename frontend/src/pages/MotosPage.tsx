@@ -160,7 +160,7 @@ export default function MotosPage() {
                                     <div className="text-gray-400 text-sm space-y-1">
                                         <p>{moto.annee} · {moto.kilometrage.toLocaleString('fr-FR')} km · {moto.cylindree} cc</p>
                                         <p>{moto.type} · {moto.puissance} kW {moto.compatibleA2 && <span className="text-green-400">· A2 ✓</span>}</p>
-                                        <p className="text-yellow-400 text-xs">⭐ Score : {moto.score}/20</p>
+                                        <p className="text-yellow-400 text-xs">⭐ Score : {moto.score}</p>
                                         <p>📍 {moto.localisation} ({moto.region})</p>
                                     </div>
                                     <Link

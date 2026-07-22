@@ -6,6 +6,8 @@ import {
     MotoFilters,
     MotoSort,
 } from '../Filter/MotoFilter';
+import {A2Decorator} from "../Decorator/A2Decorator";
+import {ScoreDecorator} from "../Decorator/ScoreDecorator";
 
 const PERMIS_A2_MAX_PUISSANCE_KW = 35;
 
@@ -34,12 +36,26 @@ export class MotoService {
         return moto.puissance <= PERMIS_A2_MAX_PUISSANCE_KW;
     }
 
+    /*
     private enrichWithRules(moto: Moto, filters: MotoFilters = {}): MotoWithRules {
         return {
             ...moto,
             compatibleA2: this.isCompatibleA2(moto),
             score: this.computeScore({ ...moto, compatibleA2: this.isCompatibleA2(moto), score: 0 }, filters),
         };
+    }
+     */
+
+    private enrichWithRules(
+        moto: Moto,
+        filters: MotoFilters = {}
+    ): MotoWithRules {
+
+        let decorated: MotoWithRules = {...moto, compatibleA2: false, score: 0};
+        decorated = new A2Decorator().decorate(decorated);
+        decorated = new ScoreDecorator(filters).decorate(decorated);
+        return decorated;
+
     }
 
     /* tolère des filtres min/max inversés côté client en les remettant dans le bon ordre plutôt que de renvoyer une liste vide. */
@@ -74,7 +90,6 @@ export class MotoService {
         return true;
     }
 
-    /* Sortir dans un helper */
     private matchesText(value: string, query: string): boolean {
         return value.toLowerCase().includes(query.toLowerCase());
     }
@@ -139,7 +154,7 @@ export class MotoService {
         else if (joursDepuisPublication < 30) score += 2;
         else if (joursDepuisPublication < 90) score += 1;
 
-        // compatible A2 si filtre actif
+        // compatible A2
         if (filters.permisA2 && moto.compatibleA2) score += 2;
 
         return score;

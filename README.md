@@ -126,5 +126,33 @@ Renvoie toute les motos de la marque Yamaha trié par leur score
 GET /api/motos?marque=Yamaha&sortBy=score&order=desc
 ```
 
-## Schéma d'architecture
+## Patterns
+Les patterns utilisés sont :
+
+### Singleton
+
+Le pattern Singleton garantit qu'une seule instance d'une classe existe dans toute l'application.
+Dans MotoSearch, il est utilisé pour gérer l'instance de PrismaClient.
+Une seule connexion à la base de données est créée et réutilisée.
+
+### Factory
+Il est utilisé pour créer le bon repository de motos selon la source de données utilisée.
+`/Factory/RepositoryFactory.ts`
+
+### Decorator
+Ici, il permet d'ajouter à la moto si elle est compatible A2 ou non
+
+### Barycentre
+`/Utils/ScoreCalculator.ts`
+
+| Critère          | Poids |
+| ---------------- | ----: |
+| Prix             |   40% |
+| Kilométrage      |   25% |
+| Année            |   20% |
+| Distance         |   10% |
+| Compatibilité A2 |    5% |
+
+
+# Schéma d'architecture
 ![img.png](img.png)
